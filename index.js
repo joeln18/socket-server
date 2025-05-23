@@ -22,11 +22,21 @@ io.on('connection', (socket) => {
     io.emit('mensaje ', data); // retransmite a todos
   });
 
+  socket.on('disponibilidadValidada', (data) => {
+    console.log('Mensaje recibido disponibilidadValidada: ', JSON.stringify(data));
+    io.emit('disponibilidadValidada ', data); // retransmite a todos
+  });
+
+  socket.on('inventarioActualizado', (data) => {
+    console.log('Mensaje recibido inventarioActualizado: ', JSON.stringify(data));
+    io.emit('inventarioActualizado ', data); // retransmite a todos
+  });
+
   socket.on('disconnect', () => {
     console.log('Usuario desconectado: ', socket.id);
   });
 });
 
 server.listen(process.env.PORT || 3001, () => {
-  console.log('Servidor de sockets en http://localhost:3001');
+  console.log('Servidor de sockets port ', process.env.PORT);
 });
