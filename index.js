@@ -24,12 +24,12 @@ io.on('connection', (socket) => {
 
   socket.on('disponibilidadValidada', (data) => {
     console.log('Mensaje recibido disponibilidadValidada: ', JSON.stringify(data));
-    io.emit('disponibilidadValidada ', data); // retransmite a todos
+    io.emit('disponibilidadValidada', data); // retransmite a todos
   });
 
   socket.on('inventarioActualizado', (data) => {
     console.log('Mensaje recibido inventarioActualizado: ', JSON.stringify(data));
-    io.emit('inventarioActualizado ', data); // retransmite a todos
+    io.emit('inventarioActualizado', data); // retransmite a todos
   });
 
   socket.on('disconnect', () => {
